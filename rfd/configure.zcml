@@ -1,0 +1,70 @@
+<configure xmlns="http://namespaces.repoze.org/bfg">
+
+  <!-- this must be included for the view declarations to work -->
+  <include package="repoze.bfg.includes" />
+
+  <static
+     name="static"
+     path="templates/static"
+     />
+
+  <view
+     context=".models.FileDrop"
+     view=".views.filedrop"
+     renderer="templates/filedrop.pt"
+     />
+
+  <!-- TODO: add file or folder should be on anything with IContainer -->
+
+  <view
+     context=".models.FileDrop"
+     view=".views.add_drop"
+     renderer="templates/drop.pt"
+     name="add_drop"
+     request_type='GET'
+     />
+  <view
+     context=".models.FileDrop"
+     view=".views.add_drop"
+     name="add_drop"
+     request_type='POST'
+     />
+
+  <!-- TODO should only ad files to Folder or Drop, not FileDrop -->
+  <view
+     context=".models.FileDrop"
+     view=".views.add_file"
+     renderer="templates/upload.pt"
+     name="add_file"
+     />
+
+  <!-- <view -->
+  <!--    context=".models.FileDrop" -->
+  <!--    view=".views.filedrop" -->
+  <!--    renderer="templates/add_folder.pt" -->
+  <!--    name="add_folder" -->
+  <!--    /> -->
+
+
+<!--
+  <view
+     context=".models.Users"
+     view=".views.users"
+     renderer="templates/users.pt"
+     />
+
+  <view
+     context=".models.Drops"
+     view=".views.drops"
+     renderer="templates/drops.pt"
+     />
+-->
+<!--
+  <view
+     context="*"
+     view=".views.upload"
+     name="upload"
+     renderer="templates/upload.pt"
+     />
+-->
+</configure>
